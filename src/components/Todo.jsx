@@ -1,18 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
-import todo from '../assets/todo.png'
+import { ListTodo } from 'lucide-react'
 import ToDoItems from './ToDoItems'
 
 const Todo = () => {
 
     const [todoList, setTodoList] = useState([]);
 
-
     const inputRef = useRef();
-
 
     const add = ()=>{
         const inputText = inputRef.current.value.trim();
-
 
         if (inputText === "") {
             return null;
@@ -26,9 +23,6 @@ const Todo = () => {
         }
         setTodoList((prev)=> [...prev, newTodo]);
         inputRef.current.value = "";
-
-
-
 
     }
 
@@ -62,7 +56,7 @@ localStorage.setItem("todos", JSON.stringify(todoList))
 
       {/* ---title---*/}
      <div className='flex items-center mt-7 gap-2'>
-        <img className='w-8' src={todo} alt="" />
+        <ListTodo className='w-8 h-8 text-red-500' />
         <h1 className='text-3xl font-semibold'>To-Do List </h1>
 
       </div>
@@ -86,15 +80,10 @@ localStorage.setItem("todos", JSON.stringify(todoList))
 
             })}
 
-          
         </div>
-
-
 
      </div>
 
-
-    
   )
 }
 
