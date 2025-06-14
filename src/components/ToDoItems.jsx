@@ -13,9 +13,9 @@ const ToDoItems = ({text, id, isComplete, deleteTodo, toggle, editTodo}) => {
     };
 
     return (
-        <div className='flex items-center my-3 gap-2 group'>
+        <div className='flex items-center my-3 gap-2 group' data-testid="todo-item">
             {/* Checkbox */}
-            <div onClick={() => toggle(id)} className='cursor-pointer'> 
+            <div onClick={() => toggle(id)} className='cursor-pointer' data-testid="toggle-todo"> 
                 {isComplete ? (
                     <CheckCircle className="w-8 h-8 text-green-500" />
                 ) : (
@@ -50,6 +50,7 @@ const ToDoItems = ({text, id, isComplete, deleteTodo, toggle, editTodo}) => {
                 <Trash2 
                     onClick={() => deleteTodo(id)} 
                     className='w-4 h-4 cursor-pointer text-red-500 hover:text-red-700' 
+                    data-testid="delete-button"
                 />
             </div>
         </div> 
